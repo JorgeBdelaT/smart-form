@@ -1,0 +1,20 @@
+<form [formGroup]="formGroup">
+  <ng-container *ngFor="let field of data.fields">
+    <sf-field
+      [label]="field.label"
+      [key]="field.key"
+      [inputType]="field.inputType"
+      [control]="formGroup.controls[field.key]"
+    ></sf-field>
+  </ng-container>
+
+  <ng-container *ngFor="let button of data.buttons">
+    <sf-button
+      [type]="button.type"
+      [action]="button.action"
+      [label]="button.label"
+    ></sf-button>
+  </ng-container>
+</form>
+
+<div>Form values: {{ formGroup.value | json }}</div>
