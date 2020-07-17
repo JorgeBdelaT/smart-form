@@ -40,11 +40,14 @@ export class SmartFormComponent implements OnInit {
         field.inputType === 'email'
       ) {
         fieldsOptions[field.key] = field.value ? field.value : '';
-      } else if (field.inputType === 'select') {
+      } else if (
+        field.inputType === 'select' ||
+        field.inputType === 'radio-button'
+      ) {
         const selected = field.options
           .filter((option) => option.selected)
           .map((option) => option.value);
-        fieldsOptions[field.key] = selected[0] ? selected[0] : '';
+        fieldsOptions[field.key] = selected[0];
       }
 
       // else if (field.inputType === 'selector' && field.multiple) {

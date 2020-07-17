@@ -21,7 +21,10 @@
   </ng-container>
 
   <ng-container *ngIf="fieldData.inputType === 'radio-button'">
-    <sf-radio-button-input></sf-radio-button-input>
+    <sf-radio-button-input
+      [field]="fieldData"
+      [control]="formGroup.controls[fieldData.key]"
+    ></sf-radio-button-input>
   </ng-container>
 
   <ng-container *ngIf="fieldData.inputType === 'multiple-select'">

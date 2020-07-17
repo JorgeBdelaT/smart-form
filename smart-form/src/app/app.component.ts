@@ -59,6 +59,24 @@ export class AppComponent {
           },
         ],
       },
+      // radio-button-input
+      {
+        label: 'Subscribe to newsletter?',
+        key: 'newsletter',
+        required: true,
+        inputType: 'radio-button',
+        options: [
+          {
+            label: 'Yes',
+            value: true,
+          },
+          {
+            label: 'No',
+            value: false,
+            // selected: true,
+          },
+        ],
+      },
     ],
     buttons: [
       {
