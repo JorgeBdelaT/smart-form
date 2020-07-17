@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -12,6 +17,7 @@ import { FormData } from 'src/app/interfaces';
   selector: 'smart-form',
   templateUrl: './smart-form.component.html',
   styleUrls: ['./smart-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SmartFormComponent implements OnInit {
   @Input() data: FormData;

@@ -1,19 +1,25 @@
 <div class="form__group">
   <label class="form__label" [for]="fieldData.key">{{ fieldData.label }}</label>
-  <ng-container *ngIf="fieldData.inputType === 'text'">
-    <sf-text-input
+  <ng-container
+    *ngIf="
+      fieldData.inputType === 'text' ||
+      fieldData.inputType === 'email' ||
+      fieldData.inputType === 'password'
+    "
+  >
+    <sf-plain-input
       [field]="fieldData"
       [control]="formGroup.controls[fieldData.key]"
-    ></sf-text-input>
+    ></sf-plain-input>
   </ng-container>
 
-  <ng-container *ngIf="fieldData.inputType === 'email'">
+  <!-- <ng-container *ngIf="fieldData.inputType === 'email'">
     <sf-email-input></sf-email-input>
   </ng-container>
 
   <ng-container *ngIf="fieldData.inputType === 'password'">
     <sf-password-input></sf-password-input>
-  </ng-container>
+  </ng-container> -->
 
   <ng-container *ngIf="fieldData.inputType === 'select'">
     <sf-select-input></sf-select-input>

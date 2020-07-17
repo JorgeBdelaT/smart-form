@@ -20,6 +20,36 @@ export class AppComponent {
         maxLength: 10,
         pattern: /^[a-z0-9]+$/,
       },
+      {
+        label: 'Password',
+        key: 'password',
+        inputType: 'password',
+        required: true,
+        minLength: 6,
+        maxLength: 20,
+      },
+      {
+        label: 'Email',
+        key: 'email',
+        inputType: 'email',
+        required: true,
+      },
+    ],
+    buttons: [
+      {
+        label: 'Send',
+        action: () => {
+          console.log('submiting form');
+        },
+        type: 'submit',
+      },
+      {
+        label: 'Read more...',
+        action: () => {
+          console.log('reading a little bit more....');
+        },
+        type: 'text',
+      },
     ],
   };
   // mockInput = {
@@ -85,22 +115,22 @@ export class AppComponent {
   //       ],
   //     },
   //   ],
-  //   buttons: [
-  //     {
-  //       label: 'Send',
-  //       action: () => {
-  //         console.log('submiting form');
-  //       },
-  //       type: 'submit',
+  // buttons: [
+  //   {
+  //     label: 'Send',
+  //     action: () => {
+  //       console.log('submiting form');
   //     },
-  //     {
-  //       label: 'Read more...',
-  //       action: () => {
-  //         console.log('reading a little bit more....');
-  //       },
-  //       type: 'text',
+  //     type: 'submit',
+  //   },
+  //   {
+  //     label: 'Read more...',
+  //     action: () => {
+  //       console.log('reading a little bit more....');
   //     },
-  //   ],
+  //     type: 'text',
+  //   },
+  // ],
   // };
 
   // mockEdit = {

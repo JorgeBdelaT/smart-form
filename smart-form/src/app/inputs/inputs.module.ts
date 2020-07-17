@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { TextInputComponent } from './text-input/text-input.component';
-import { PasswordInputComponent } from './password-input/password-input.component';
-import { EmailInputComponent } from './email-input/email-input.component';
+import { PlainInputComponent } from './plain-input/plain-input.component';
 import { SelectInputComponent } from './select-input/select-input.component';
 import { MultipleSelectInputComponent } from './multiple-select-input/multiple-select-input.component';
 import { RadioButtonInputComponent } from './radio-button-input/radio-button-input.component';
@@ -12,9 +10,7 @@ import { CheckboxInputComponent } from './checkbox-input/checkbox-input.componen
 
 @NgModule({
   declarations: [
-    TextInputComponent,
-    PasswordInputComponent,
-    EmailInputComponent,
+    PlainInputComponent,
     SelectInputComponent,
     MultipleSelectInputComponent,
     RadioButtonInputComponent,
@@ -22,9 +18,7 @@ import { CheckboxInputComponent } from './checkbox-input/checkbox-input.componen
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
-    TextInputComponent,
-    PasswordInputComponent,
-    EmailInputComponent,
+    PlainInputComponent,
     SelectInputComponent,
     MultipleSelectInputComponent,
     RadioButtonInputComponent,
