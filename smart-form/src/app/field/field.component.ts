@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormArray } from '@angular/forms';
 
-import { FieldOptionsData } from 'src/app/interfaces';
+import { FieldData } from 'src/app/interfaces';
 
 @Component({
   selector: 'sf-field',
@@ -9,12 +9,8 @@ import { FieldOptionsData } from 'src/app/interfaces';
   styleUrls: ['./field.component.scss'],
 })
 export class FieldComponent implements OnInit {
-  @Input() label: string;
-  @Input() key: string;
-  @Input() inputType: string;
-  @Input() control;
-  @Input() options?: FieldOptionsData;
-  @Input() multiple: boolean;
+  @Input() fieldData: FieldData;
+  @Input() formGroup: FormGroup;
 
   constructor() {}
 

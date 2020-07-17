@@ -1,14 +1,7 @@
 <h2 *ngIf="data.title">{{ data.title }}</h2>
 <form [formGroup]="formGroup">
   <ng-container *ngFor="let field of data.fields">
-    <sf-field
-      [label]="field.label"
-      [key]="field.key"
-      [inputType]="field.inputType"
-      [control]="formGroup.controls[field.key]"
-      [options]="field.options"
-      [multiple]="field.multiple"
-    ></sf-field>
+    <sf-field [fieldData]="field" [formGroup]="formGroup"></sf-field>
   </ng-container>
 
   <ng-container *ngFor="let button of data.buttons">

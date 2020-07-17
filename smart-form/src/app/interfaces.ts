@@ -8,10 +8,12 @@ export interface FieldData {
   label: string;
   key: string;
   value?: any;
-  required: boolean;
   inputType: string;
-  multiple?: boolean;
   options?: FieldOptionsData[];
+  required?: boolean;
+  minLength?: number;
+  maxLength?: number;
+  pattern?: string;
 }
 
 export interface ButtonData {

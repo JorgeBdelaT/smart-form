@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { TextInputComponent } from './text-input/text-input.component';
 import { PasswordInputComponent } from './password-input/password-input.component';
 import { EmailInputComponent } from './email-input/email-input.component';
@@ -18,7 +20,7 @@ import { CheckboxInputComponent } from './checkbox-input/checkbox-input.componen
     RadioButtonInputComponent,
     CheckboxInputComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   exports: [
     TextInputComponent,
     PasswordInputComponent,

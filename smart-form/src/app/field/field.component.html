@@ -1,4 +1,38 @@
-<div>
+<div class="form__group">
+  <label class="form__label" [for]="fieldData.key">{{ fieldData.label }}</label>
+  <ng-container *ngIf="fieldData.inputType === 'text'">
+    <sf-text-input
+      [field]="fieldData"
+      [control]="formGroup.controls[fieldData.key]"
+    ></sf-text-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'email'">
+    <sf-email-input></sf-email-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'password'">
+    <sf-password-input></sf-password-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'select'">
+    <sf-select-input></sf-select-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'radio-button'">
+    <sf-radio-button-input></sf-radio-button-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'multiple-select'">
+    <sf-multiple-select-input></sf-multiple-select-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'checkbox'">
+    <sf-checkbox-input></sf-checkbox-input>
+  </ng-container>
+</div>
+
+<!-- <div>
   <label [for]="key">{{ label }}</label>
   <ng-container
     *ngIf="
@@ -44,7 +78,7 @@
     </ng-container>
   </ng-container>
 
-  <!-- <ng-container *ngIf="inputType === 'checkbox'">
+  <ng-container *ngIf="inputType === 'checkbox'">
     <ng-container *ngFor="let option of options; let i = index">
       <input
         type="checkbox"
@@ -56,5 +90,7 @@
       />
       <label [for]="option.value">{{ option.label }}</label>
     </ng-container>
-  </ng-container> -->
-</div>
+  </ng-container>
+</div> -->
+
+<!-- <div>Field component: {{ fieldData | json }}</div> -->
