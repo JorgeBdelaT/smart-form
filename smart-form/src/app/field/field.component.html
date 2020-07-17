@@ -1,4 +1,60 @@
 <div>
   <label [for]="key">{{ label }}</label>
-  <input [id]="key" [type]="inputType" [formControl]="control" />
+  <ng-container
+    *ngIf="
+      inputType === 'text' || inputType === 'email' || inputType === 'password'
+    "
+  >
+    <input [id]="key" [type]="inputType" [formControl]="control" />
+  </ng-container>
+
+  <ng-container *ngIf="inputType === 'selector' && !multiple">
+    <select [id]="key" [name]="key" [formControl]="control">
+      <ng-container *ngFor="let option of options">
+        <option [value]="option.value" [selected]="option.selected"
+          >{{ option.label }}
+        </option>
+      </ng-container>
+    </select>
+  </ng-container>
+
+  <ng-container *ngIf="inputType === 'selector' && multiple">
+    <select [id]="key" [name]="key" [multiple]="multiple">
+      <ng-container *ngFor="let option of options; let i = index">
+        <option
+          [formControl]="control.controls[i]"
+          [value]="option.value"
+          [selected]="option.selected"
+          >{{ option.label }}
+        </option>
+      </ng-container>
+    </select>
+  </ng-container>
+
+  <ng-container *ngIf="inputType === 'radio-button'">
+    <ng-container *ngFor="let option of options">
+      <input
+        type="radio"
+        [id]="option.value"
+        [name]="key"
+        [value]="option.value"
+        [formControl]="control"
+      />
+      <label [for]="option.value">{{ option.label }}</label>
+    </ng-container>
+  </ng-container>
+
+  <!-- <ng-container *ngIf="inputType === 'checkbox'">
+    <ng-container *ngFor="let option of options; let i = index">
+      <input
+        type="checkbox"
+        [id]="option.value"
+        [name]="key"
+        [value]="option.value"
+        [formControl]="control"
+        [checked]="option.selected"
+      />
+      <label [for]="option.value">{{ option.label }}</label>
+    </ng-container>
+  </ng-container> -->
 </div>

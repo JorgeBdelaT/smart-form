@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormArray } from '@angular/forms';
+
+import { FieldOptionsData } from 'src/app/interfaces';
 
 @Component({
   selector: 'sf-field',
@@ -10,7 +12,9 @@ export class FieldComponent implements OnInit {
   @Input() label: string;
   @Input() key: string;
   @Input() inputType: string;
-  @Input() control: FormControl;
+  @Input() control;
+  @Input() options?: FieldOptionsData;
+  @Input() multiple: boolean;
 
   constructor() {}
 
