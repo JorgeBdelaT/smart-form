@@ -1,1 +1,12 @@
-<p>select-input works!</p>
+<select [id]="field.key" [name]="field.key" [formControl]="control">
+  <ng-container *ngFor="let option of field.options">
+    <option [value]="option.value" [selected]="option.selected"
+      >{{ option.label }}
+    </option>
+  </ng-container>
+</select>
+<div class="form__input__errors" *ngIf="showErrors()">
+  <p class="form__input__error" *ngIf="control.errors.required">
+    Value is required
+  </p>
+</div>

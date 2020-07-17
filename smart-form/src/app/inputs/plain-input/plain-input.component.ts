@@ -20,7 +20,6 @@ export class PlainInputComponent implements OnInit {
 
   setValidators() {
     const { required, minLength, maxLength, pattern } = this.field;
-    console.log('Validators:', required, minLength, maxLength);
 
     const validators = [];
 

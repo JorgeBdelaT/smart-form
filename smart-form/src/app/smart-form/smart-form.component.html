@@ -1,16 +1,14 @@
-<h2 *ngIf="data.title">{{ data.title }}</h2>
-<form [formGroup]="formGroup">
+<form class="form" [formGroup]="formGroup">
+  <h2 class="form__title" *ngIf="data.title">{{ data.title }}</h2>
   <ng-container *ngFor="let field of data.fields">
     <sf-field [fieldData]="field" [formGroup]="formGroup"></sf-field>
   </ng-container>
 
-  <ng-container *ngFor="let button of data.buttons">
-    <sf-button
-      [type]="button.type"
-      [action]="button.action"
-      [label]="button.label"
-    ></sf-button>
-  </ng-container>
+  <div class="form__buttons">
+    <ng-container *ngFor="let button of data.buttons">
+      <sf-button [button]="button"></sf-button>
+    </ng-container>
+  </div>
 </form>
 
 <div>Form values: {{ formGroup.value | json }}</div>

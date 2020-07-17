@@ -13,16 +13,11 @@
     ></sf-plain-input>
   </ng-container>
 
-  <!-- <ng-container *ngIf="fieldData.inputType === 'email'">
-    <sf-email-input></sf-email-input>
-  </ng-container>
-
-  <ng-container *ngIf="fieldData.inputType === 'password'">
-    <sf-password-input></sf-password-input>
-  </ng-container> -->
-
   <ng-container *ngIf="fieldData.inputType === 'select'">
-    <sf-select-input></sf-select-input>
+    <sf-select-input
+      [field]="fieldData"
+      [control]="formGroup.controls[fieldData.key]"
+    ></sf-select-input>
   </ng-container>
 
   <ng-container *ngIf="fieldData.inputType === 'radio-button'">

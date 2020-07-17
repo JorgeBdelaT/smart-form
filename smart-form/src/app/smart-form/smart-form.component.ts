@@ -34,9 +34,19 @@ export class SmartFormComponent implements OnInit {
     const { fields } = this.data;
 
     for (let field of fields) {
-      if (!field.options) {
+      if (
+        field.inputType === 'text' ||
+        field.inputType === 'password' ||
+        field.inputType === 'email'
+      ) {
         fieldsOptions[field.key] = field.value ? field.value : '';
+      } else if (field.inputType === 'select') {
+        const selected = field.options
+          .filter((option) => option.selected)
+          .map((option) => option.value);
+        fieldsOptions[field.key] = selected[0] ? selected[0] : '';
       }
+
       // else if (field.inputType === 'selector' && field.multiple) {
       //   const selected = field.options
       //     .filter((option) => option.selected)
@@ -56,6 +66,6 @@ export class SmartFormComponent implements OnInit {
     }
 
     this.formGroup = this.fb.group(fieldsOptions);
-    console.log(this.formGroup.controls.username);
+    console.log(this.formGroup.controls);
   }
 }
