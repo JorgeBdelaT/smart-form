@@ -1,5 +1,12 @@
 <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <h2 class="form__title" *ngIf="data.title">{{ data.title }}</h2>
+
+  <div *ngIf="formGroup.errors" class="form__errors">
+    <p class="form__error">
+      Unable to submit the form, please fill all the required values.
+    </p>
+  </div>
+
   <ng-container *ngFor="let field of data.fields">
     <sf-field [fieldData]="field" [formGroup]="formGroup"></sf-field>
   </ng-container>
@@ -11,5 +18,7 @@
   </div>
 </form>
 
+<hr />
 <div>Form values: {{ formGroup.value | json }}</div>
 <div>Form is valid: {{ formGroup.valid | json }}</div>
+<div>Form errors: {{ formGroup.errors | json }}</div>

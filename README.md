@@ -4,14 +4,11 @@ Angular form builder
 
 # Description
 
-The idea is to make a reusable form component that receives data in this format and renders a form
+The idea is to make a reusable form component that receives data in this format and renders a form. Then, when the form is submitted, it retrieves all the form data for user manipulation.
 
 ```javascript
 {
     title: 'Smart Form Demo',
-    // onSubmit: () => {
-    //   console.log('submiting form');
-    // },
     fields: [
       // text-input
       {
@@ -151,9 +148,6 @@ The idea is to make a reusable form component that receives data in this format 
     buttons: [
       {
         label: 'Send',
-        action: () => {
-          console.log('submiting form');
-        },
         type: 'submit',
       },
       {
@@ -169,20 +163,51 @@ The idea is to make a reusable form component that receives data in this format 
 
 # Input Components
 
-I would like to create 7 input types:
+I would like to create 7 input types with the following validation options:
 1. text-input
+     - required, default false
+     - minLength, default null
+     - maxLength, default null
+     - pattern, default null
+  
 2. password-input
+     - required, default false
+     - minLength, default null
+     - maxLength, default null
+     - pattern, default null
+     
 3. email-input
+     - required, default false
+     - minLength, default null
+     - maxLength, default null
+     - pattern, default null
+     
 4. select-input
-5. radio-button-input
-6. multiple-select-input
-7. checkbox-input
+     - required, default false
 
+5. radio-button-input
+     - required, default false
+     
+6. multiple-select-input
+     - required, default false
+     - minOptions, default false
+     - maxOptions, default false
+     
+7. checkbox-input
+     - required, default false
+     - minOptions, default false
+     - maxOptions, default false
+     
 The first 3 uses the same component, but the `inputType` attribute set its behaviour.
 
 So, the 5 input components that will be implemented in this version are:
-1. PlainInputComponent (ready)
-2. SelectInputComponent (ready)
-3. RadioButtonInputComponent (ready)
-4. MultipleSelectInputComponent (ready)
-5. CheckboxInputComponent (ready)
+1. PlainInputComponent   
+2. SelectInputComponent 
+3. RadioButtonInputComponent 
+4. MultipleSelectInputComponent 
+5. CheckboxInputComponent 
+
+In future versions, I would like to include the following fields
+1. Password registration
+2. Date picker
+3. Date range picker

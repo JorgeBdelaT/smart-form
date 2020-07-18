@@ -3,6 +3,8 @@ import {
   OnInit,
   Input,
   ChangeDetectionStrategy,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -23,6 +25,7 @@ import { FormData } from 'src/app/interfaces';
 export class SmartFormComponent implements OnInit {
   @Input() data: FormData;
   formGroup: FormGroup;
+  @Output() sfSubmit = new EventEmitter();
 
   constructor(private fb: FormBuilder) {}
 
@@ -66,7 +69,11 @@ export class SmartFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.formGroup.invalid) return;
-    console.log(this.formGroup.value);
+    if (this.formGroup.invalid) {
+      this.formGroup.setErrors({ invalid: true });
+      return;
+    }
+    this.formGroup.setErrors(null);
+    this.sfSubmit.emit(this.formGroup.value);
   }
 }
