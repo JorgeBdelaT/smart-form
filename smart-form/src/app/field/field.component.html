@@ -1,4 +1,43 @@
-<div>
-  <label [for]="key">{{ label }}</label>
-  <input [id]="key" [type]="inputType" [formControl]="control" />
+<div class="form__group">
+  <label class="form__label" [for]="fieldData.key">{{ fieldData.label }}</label>
+  <ng-container
+    *ngIf="
+      fieldData.inputType === 'text' ||
+      fieldData.inputType === 'email' ||
+      fieldData.inputType === 'password'
+    "
+  >
+    <sf-plain-input
+      [field]="fieldData"
+      [control]="formGroup.controls[fieldData.key]"
+    ></sf-plain-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'select'">
+    <sf-select-input
+      [field]="fieldData"
+      [control]="formGroup.controls[fieldData.key]"
+    ></sf-select-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'radio-button'">
+    <sf-radio-button-input
+      [field]="fieldData"
+      [control]="formGroup.controls[fieldData.key]"
+    ></sf-radio-button-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'multiple-select'">
+    <sf-multiple-select-input
+      [field]="fieldData"
+      [formGroup]="formGroup"
+    ></sf-multiple-select-input>
+  </ng-container>
+
+  <ng-container *ngIf="fieldData.inputType === 'checkbox'">
+    <sf-checkbox-input
+      [field]="fieldData"
+      [formGroup]="formGroup"
+    ></sf-checkbox-input>
+  </ng-container>
 </div>

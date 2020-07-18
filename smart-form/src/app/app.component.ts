@@ -6,35 +6,42 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'smart-form';
   mockInput = {
-    // onSubmit: () => {
-    //   console.log('submiting form');
-    // },
+    title: 'Smart Form Demo',
     fields: [
+      // text-input
       {
         label: 'Username',
         key: 'username',
-        required: true,
+        value: '',
         inputType: 'text',
+        required: true,
+        minLength: 4,
+        maxLength: 10,
+        pattern: /^[a-z0-9]+$/,
       },
+      // password-input
       {
         label: 'Password',
         key: 'password',
-        required: true,
         inputType: 'password',
+        required: true,
+        minLength: 6,
+        maxLength: 20,
       },
+      // email-input
       {
         label: 'Email',
         key: 'email',
+        inputType: 'email',
         required: true,
-        inputType: 'password',
       },
+      // select-input
       {
         label: 'Country',
         key: 'country',
         required: true,
-        inputType: 'selector',
+        inputType: 'select',
         options: [
           {
             label: 'Chile',
@@ -44,12 +51,18 @@ export class AppComponent {
             label: 'Argentina',
             value: 'arg',
           },
+          {
+            label: 'United States',
+            value: 'us',
+            // selected: true,
+          },
         ],
       },
+      // radio-button-input
       {
         label: 'Subscribe to newsletter?',
         key: 'newsletter',
-        required: false,
+        required: true,
         inputType: 'radio-button',
         options: [
           {
@@ -59,6 +72,74 @@ export class AppComponent {
           {
             label: 'No',
             value: false,
+            // selected: true,
+          },
+        ],
+      },
+      // multiple-select-input
+      {
+        label: 'Hobbies',
+        key: 'hobbies',
+        required: true,
+        inputType: 'multiple-select',
+        maxOptions: 2,
+        minOptions: 1,
+        options: [
+          {
+            label: 'Climbing',
+            value: '1',
+            // selected: true,
+          },
+          {
+            label: 'Coding',
+            value: '2',
+            // selected: true,
+          },
+          {
+            label: 'Biking',
+            value: '3',
+            // selected: true,
+          },
+        ],
+      },
+      // checkbox-input
+      {
+        label: 'Top 3 Programming Languages',
+        key: 'favLang',
+        required: true,
+        inputType: 'checkbox',
+        maxOptions: 3,
+        minOptions: 1,
+        options: [
+          {
+            label: 'C',
+            value: '1',
+            // selected: true,
+          },
+          {
+            label: 'Javascript',
+            value: '2',
+            selected: true,
+          },
+          {
+            label: 'Ruby',
+            value: '3',
+            // selected: true,
+          },
+          {
+            label: 'Python',
+            value: '4',
+            // selected: true,
+          },
+          {
+            label: 'Php',
+            value: '5',
+            // selected: true,
+          },
+          {
+            label: 'Go',
+            value: '6',
+            // selected: true,
           },
         ],
       },
@@ -66,9 +147,6 @@ export class AppComponent {
     buttons: [
       {
         label: 'Send',
-        action: () => {
-          console.log('submiting form');
-        },
         type: 'submit',
       },
       {
@@ -80,4 +158,8 @@ export class AppComponent {
       },
     ],
   };
+
+  onSfSubmit(e) {
+    console.log(e);
+  }
 }

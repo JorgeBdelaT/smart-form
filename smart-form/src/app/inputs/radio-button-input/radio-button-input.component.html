@@ -1,0 +1,10 @@
+<ng-container *ngFor="let option of field.options">
+  <input
+    type="radio"
+    [id]="option.value"
+    [name]="field.key"
+    [value]="option.value"
+    [formControl]="control"
+  />
+  <label [for]="option.value">{{ option.label }}</label>
+</ng-container>

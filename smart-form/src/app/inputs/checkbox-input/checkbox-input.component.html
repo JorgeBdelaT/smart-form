@@ -1,0 +1,41 @@
+<div [formGroup]="formGroup">
+  <ng-container *ngFor="let option of field.options; let i = index">
+    <input
+      type="checkbox"
+      [value]="option.value"
+      [checked]="option.selected"
+      [id]="option.value"
+      [name]="field.key"
+      [value]="option.value"
+      (click)="onClick($event)"
+    />
+    <label [for]="option.value">{{ option.label }}</label>
+  </ng-container>
+
+  <div class="form__input__errors" *ngIf="showErrors()">
+    <p
+      class="form__input__error"
+      *ngIf="formGroup.controls[field.key].errors.required"
+    >
+      Value is required
+    </p>
+    <p
+      class="form__input__error"
+      *ngIf="formGroup.controls[field.key].errors.minOptions"
+    >
+      You must select at least
+      {{ formGroup.controls[field.key].errors.minOptions.min }} option(s).
+      {{ formGroup.controls[field.key].errors.minOptions.current }} option(s)
+      selected.
+    </p>
+    <p
+      class="form__input__error"
+      *ngIf="formGroup.controls[field.key].errors.maxOptions"
+    >
+      You cannot select more than
+      {{ formGroup.controls[field.key].errors.maxOptions.max }} option(s).
+      {{ formGroup.controls[field.key].errors.maxOptions.current }} option(s)
+      selected.
+    </p>
+  </div>
+</div>
