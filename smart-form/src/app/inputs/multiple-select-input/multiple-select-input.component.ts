@@ -17,7 +17,6 @@ export class MultipleSelectInputComponent implements OnInit {
 
   ngOnInit(): void {
     this.setValidators();
-    console.log(this.formGroup);
   }
 
   setValidators() {
@@ -26,11 +25,9 @@ export class MultipleSelectInputComponent implements OnInit {
     const validators = [];
 
     if (minOptions) {
-      // custom validator
       validators.push(MultipleOpsValidator.minOptions(minOptions));
     }
     if (maxOptions) {
-      // custom validator
       validators.push(MultipleOpsValidator.maxOptions(maxOptions));
     }
     if (required) {

@@ -106,6 +106,47 @@ export class AppComponent {
           },
         ],
       },
+      // checkbox-input
+      {
+        label: 'Top 3 Programming Languages',
+        key: 'favLang',
+        required: true,
+        inputType: 'checkbox',
+        maxOptions: 3,
+        minOptions: 1,
+        options: [
+          {
+            label: 'C',
+            value: '1',
+            // selected: true,
+          },
+          {
+            label: 'Javascript',
+            value: '2',
+            selected: true,
+          },
+          {
+            label: 'Ruby',
+            value: '3',
+            // selected: true,
+          },
+          {
+            label: 'Python',
+            value: '4',
+            // selected: true,
+          },
+          {
+            label: 'Php',
+            value: '5',
+            // selected: true,
+          },
+          {
+            label: 'Go',
+            value: '6',
+            // selected: true,
+          },
+        ],
+      },
     ],
     buttons: [
       {

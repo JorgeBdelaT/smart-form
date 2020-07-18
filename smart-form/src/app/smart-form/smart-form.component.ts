@@ -9,6 +9,7 @@ import {
   FormGroup,
   FormControl,
   Validators,
+  FormArray,
 } from '@angular/forms';
 
 import { FormData } from 'src/app/interfaces';
@@ -48,16 +49,20 @@ export class SmartFormComponent implements OnInit {
           .filter((option) => option.selected)
           .map((option) => option.value);
         fieldsOptions[field.key] = selected[0];
-      } else if (field.inputType === 'multiple-select') {
+      } else if (
+        field.inputType === 'multiple-select' ||
+        field.inputType === 'checkbox'
+      ) {
         const selectedValues = field.options
           .filter((option) => option.selected)
           .map((option) => option.value);
+
         fieldsOptions[field.key] = [selectedValues];
       }
     }
 
     this.formGroup = this.fb.group(fieldsOptions);
-    console.log(this.formGroup.controls);
+    // console.log(this.formGroup.controls);
   }
 
   onSubmit() {
