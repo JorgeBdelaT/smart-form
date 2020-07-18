@@ -9,6 +9,9 @@ export class AppComponent {
   title = 'smart-form';
   mockInProgress = {
     title: 'Smart Form Demo',
+    // onSubmit: () => {
+    //   console.log('submiting form');
+    // },
     fields: [
       // text-input
       {
@@ -73,6 +76,32 @@ export class AppComponent {
           {
             label: 'No',
             value: false,
+            // selected: true,
+          },
+        ],
+      },
+      // multiple-select-input
+      {
+        label: 'Hobbies',
+        key: 'hobbies',
+        required: true,
+        inputType: 'multiple-select',
+        maxOptions: 2,
+        minOptions: 1,
+        options: [
+          {
+            label: 'Climbing',
+            value: '1',
+            // selected: true,
+          },
+          {
+            label: 'Coding',
+            value: '2',
+            // selected: true,
+          },
+          {
+            label: 'Biking',
+            value: '3',
             // selected: true,
           },
         ],

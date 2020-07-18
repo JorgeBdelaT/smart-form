@@ -14,6 +14,8 @@ export interface FieldData {
   minLength?: number;
   maxLength?: number;
   pattern?: string;
+  maxOptions?: number;
+  minOptions?: number;
 }
 
 export interface ButtonData {
@@ -23,7 +25,7 @@ export interface ButtonData {
 }
 
 export interface FormData {
-  // onSubmit: () => void;
+  onSubmit: () => void;
   title?: string;
   fields: FieldData[];
   buttons: ButtonData[];

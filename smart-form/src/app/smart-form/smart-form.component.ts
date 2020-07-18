@@ -48,27 +48,20 @@ export class SmartFormComponent implements OnInit {
           .filter((option) => option.selected)
           .map((option) => option.value);
         fieldsOptions[field.key] = selected[0];
+      } else if (field.inputType === 'multiple-select') {
+        const selectedValues = field.options
+          .filter((option) => option.selected)
+          .map((option) => option.value);
+        fieldsOptions[field.key] = [selectedValues];
       }
-
-      // else if (field.inputType === 'selector' && field.multiple) {
-      //   const selected = field.options
-      //     .filter((option) => option.selected)
-      //     .map((s) => s.value);
-      //   fieldsOptions[field.key] = this.fb.array(selected);
-      // } else if (
-      //   field.inputType === 'selector' ||
-      //   field.inputType === 'radio-button'
-      // ) {
-      //   const selected = field.options.filter((option) => option.selected);
-      //   fieldsOptions[field.key] = selected[0] ? selected[0].value : '';
-      // } else if (field.inputType === 'checkbox') {
-      //   const selected = field.options.filter((option) => option.selected);
-      //   const selectedValues = selected.map((s) => s.value);
-      //   fieldsOptions[field.key] = this.fb.array(selectedValues);
-      // }
     }
 
     this.formGroup = this.fb.group(fieldsOptions);
     console.log(this.formGroup.controls);
+  }
+
+  onSubmit() {
+    if (this.formGroup.invalid) return;
+    console.log(this.formGroup.value);
   }
 }

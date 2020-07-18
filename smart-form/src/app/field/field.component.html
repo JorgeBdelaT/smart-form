@@ -28,7 +28,10 @@
   </ng-container>
 
   <ng-container *ngIf="fieldData.inputType === 'multiple-select'">
-    <sf-multiple-select-input></sf-multiple-select-input>
+    <sf-multiple-select-input
+      [field]="fieldData"
+      [formGroup]="formGroup"
+    ></sf-multiple-select-input>
   </ng-container>
 
   <ng-container *ngIf="fieldData.inputType === 'checkbox'">
