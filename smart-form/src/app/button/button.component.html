@@ -1,7 +1,7 @@
 <button
   class="button"
   [type]="button.type"
-  (click)="button.action ? button.action() : undefined"
+  (click)="button.type != 'submit' ? button.action() : undefined"
 >
-  {{ button.label }}
+  {{ button.label ? button.label : "Submit" }}
 </button>
