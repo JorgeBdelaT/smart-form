@@ -119,7 +119,7 @@ export class AppComponent {
           {
             label: 'Javascript',
             value: '2',
-            selected: true,
+            // selected: true,
           },
           {
             label: 'Ruby',
@@ -144,19 +144,9 @@ export class AppComponent {
         ],
       },
     ],
-    buttons: [
-      {
-        label: 'Send',
-        type: 'submit',
-      },
-      {
-        label: 'Read more...',
-        action: () => {
-          console.log('reading a little bit more....');
-        },
-        type: 'text',
-      },
-    ],
+    button: {
+      label: 'Send',
+    },
   };
 
   onSfSubmit(e) {

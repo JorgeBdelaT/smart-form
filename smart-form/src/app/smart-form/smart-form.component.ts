@@ -73,13 +73,6 @@ export class SmartFormComponent implements OnInit {
         throw Error('Invalid inputType');
       }
     });
-
-    this.data.buttons.forEach((button) => {
-      if (button.type === undefined) {
-        this.validInput = false;
-        throw Error('Undefined type for button');
-      }
-    });
     this.validInput = true;
   }
 

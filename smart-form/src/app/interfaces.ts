@@ -19,13 +19,11 @@ export interface FieldData {
 }
 
 export interface ButtonData {
-  label?: string; // 'Submit' by default
-  action?: () => void; // only if it is not submit type
-  type: string;
+  label: string; // 'Submit' by default
 }
 
 export interface FormData {
   title?: string; // empty by default
   fields: FieldData[];
-  buttons?: ButtonData[]; // by default a Submit button is generated
+  button?: ButtonData; // by default a Submit button is generated
 }
