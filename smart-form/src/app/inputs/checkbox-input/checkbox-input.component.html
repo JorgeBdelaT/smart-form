@@ -1,4 +1,7 @@
 <div [formGroup]="formGroup">
+  <label class="field__label" [for]="field.key">
+    {{ field.label ? field.label : (field.key | titlecase) }}
+  </label>
   <ng-container *ngFor="let option of field.options; let i = index">
     <input
       type="checkbox"

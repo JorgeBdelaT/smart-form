@@ -1,3 +1,6 @@
+<label class="field__label" [for]="field.key">
+  {{ field.label ? field.label : (field.key | titlecase) }}
+</label>
 <select [id]="field.key" [name]="field.key" [formControl]="control">
   <ng-container *ngFor="let option of field.options">
     <option [value]="option.value" [selected]="option.selected"

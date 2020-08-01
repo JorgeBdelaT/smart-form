@@ -1,7 +1,4 @@
-<div class="form__group">
-  <label class="form__label" [for]="fieldData.key">{{
-    fieldData.label ? fieldData.label : (fieldData.key | titlecase)
-  }}</label>
+<div class="field">
   <ng-container
     *ngIf="
       fieldData.inputType === 'text' ||
