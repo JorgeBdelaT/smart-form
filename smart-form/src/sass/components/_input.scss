@@ -1,0 +1,52 @@
+.input {
+  &__plain {
+    font-size: 1.2rem;
+    padding: 1rem 1.3rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.45);
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    display: block;
+    transition: all 0.3s;
+
+    border-bottom: 3px solid transparent;
+
+    &:first-child {
+      margin-top: 1.8rem;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &--error {
+      border-bottom: 3px solid $color-red-dark;
+    }
+
+    &-errors {
+      width: 100%;
+      color: $color-red-dark;
+      padding: 0.7rem;
+      margin-top: -1.5rem;
+    }
+
+    &-label {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-left: 1.3rem;
+      display: block;
+      transition: all 0.3s;
+      transform: translateY(-5.5rem);
+    }
+
+    &:placeholder-shown + &-label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-2rem);
+    }
+  }
+}

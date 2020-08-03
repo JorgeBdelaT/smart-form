@@ -46,6 +46,7 @@ main {
   background-color: transparent;
   color: $color-primary-6;
   cursor: pointer;
+  transition: all 0.2s;
 
   &:not(:last-child) {
     margin-right: 20px;
@@ -73,9 +74,13 @@ main {
   }
 
   &__list {
+    margin-top: 3rem;
     padding-left: 1.8rem;
-    columns: 2;
-    margin-top: 2rem;
+    // columns: 2;
+    display: grid;
+    grid-template-columns: 20rem 20rem;
+    column-gap: 3rem;
+    row-gap: 2rem;
 
     &__item {
     }
@@ -109,5 +114,21 @@ main {
       text-decoration: none;
       color: $color-primary-6;
     }
+  }
+}
+
+.form-result {
+  display: block;
+  margin-top: 1.5rem;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  border-top: 0.1rem solid $color-primary-6;
+
+  &__title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: $color-primary-6;
   }
 }

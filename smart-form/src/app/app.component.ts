@@ -11,7 +11,7 @@ export class AppComponent {
   formResult = null;
 
   defaultStructure = {
-    title: '',
+    title: 'Form title',
     fields: [
       // text-input
       {
