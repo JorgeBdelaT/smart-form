@@ -149,6 +149,10 @@
       background-color: rgba($color-white, 0.45);
       position: relative;
       border-bottom: 2px solid transparent;
+
+      &:hover {
+        transform: translateY(-0.1rem);
+      }
     }
 
     &-button {
@@ -157,7 +161,7 @@
       border: 0.1rem solid $color-dark;
       display: inline-block;
       position: absolute;
-      left: -1.8rem;
+      left: -2.8rem;
       border-radius: 0.3rem;
       cursor: pointer;
 
@@ -186,7 +190,7 @@
       width: 90%;
       position: absolute;
       top: 50%;
-      left: 2rem;
+      left: 3rem;
       transform: translateY(-50%);
       cursor: pointer;
     }
@@ -213,6 +217,7 @@
     &:checked ~ &-option &-button::after {
       opacity: 1;
     }
+
     &-label {
       display: inline-block;
       font-size: 1.2rem;
@@ -231,10 +236,14 @@
       background-color: rgba($color-white, 0.45);
       position: relative;
       border-bottom: 2px solid transparent;
+
+      &:hover {
+        transform: translateY(-0.1rem);
+      }
     }
 
     &-option {
-      margin-left: 2.6rem;
+      margin-left: 3.6rem;
       width: 90%;
       cursor: pointer;
       display: inline-block;
@@ -271,6 +280,55 @@
       color: $color-red-dark;
       padding: 0.7rem;
       margin-top: -1rem;
+    }
+
+    &--error {
+      border-bottom: 2px solid $color-red-dark;
+    }
+  }
+
+  // Multi-select input component
+  &__multi-select {
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.45);
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    height: auto;
+    display: block;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent;
+
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+    }
+
+    option {
+      padding: 1rem 1.3rem;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-0.1rem);
+      }
+    }
+
+    &-label {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding: 0 1.3rem;
+      color: $color-primary-1;
+    }
+
+    &-errors {
+      width: 100%;
+      color: $color-red-dark;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
     }
 
     &--error {

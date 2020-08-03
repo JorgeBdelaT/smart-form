@@ -1,8 +1,13 @@
 <div [formGroup]="formGroup">
-  <label class="field__label" [for]="field.key">
+  <label class="input__multi-select-label" [for]="field.key">
     {{ field.label ? field.label : (field.key | titlecase) }}
   </label>
-  <select [formControlName]="field.key" multiple>
+  <select
+    [formControlName]="field.key"
+    multiple
+    class="input__multi-select"
+    [ngClass]="{ 'input__multi-select--error': showErrors() }"
+  >
     <option
       *ngFor="let option of field.options"
       [value]="option.value"
@@ -10,15 +15,15 @@
       >{{ option.label }}</option
     >
   </select>
-  <div class="form__input__errors" *ngIf="showErrors()">
+  <div class="input__multi-select-errors" *ngIf="showErrors()">
     <p
-      class="form__input__error"
+      class="input__multi-select-error"
       *ngIf="formGroup.controls[field.key].errors.required"
     >
       Value is required
     </p>
     <p
-      class="form__input__error"
+      class="input__multi-select-error"
       *ngIf="formGroup.controls[field.key].errors.minOptions"
     >
       You must select at least
@@ -27,7 +32,7 @@
       selected.
     </p>
     <p
-      class="form__input__error"
+      class="input__multi-select-error"
       *ngIf="formGroup.controls[field.key].errors.maxOptions"
     >
       You cannot select more than

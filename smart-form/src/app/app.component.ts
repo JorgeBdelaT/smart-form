@@ -104,6 +104,11 @@ export class AppComponent {
             value: '8',
             // selected: true,
           },
+          {
+            label: 'option 4',
+            value: '9',
+            // selected: true,
+          },
         ],
       },
       // checkbox-input
@@ -117,32 +122,32 @@ export class AppComponent {
         options: [
           {
             label: 'option 1',
-            value: '9',
-            // selected: true,
-          },
-          {
-            label: 'option 2',
             value: '10',
             // selected: true,
           },
           {
-            label: 'option 3',
-            value: '11',
-            // selected: true,
-          },
-          {
-            label: 'option 4',
+            label: 'option 2',
             value: '12',
             // selected: true,
           },
           {
-            label: 'option 5',
+            label: 'option 3',
+            value: '12',
+            // selected: true,
+          },
+          {
+            label: 'option 4',
             value: '13',
             // selected: true,
           },
           {
-            label: 'option 6',
+            label: 'option 5',
             value: '14',
+            // selected: true,
+          },
+          {
+            label: 'option 6',
+            value: '15',
             // selected: true,
           },
         ],
