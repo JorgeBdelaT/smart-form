@@ -1,29 +1,38 @@
 <div [formGroup]="formGroup">
-  <label class="field__label" [for]="field.key">
+  <label class="input__checkbox-label" [for]="field.key">
     {{ field.label ? field.label : (field.key | titlecase) }}
   </label>
   <ng-container *ngFor="let option of field.options; let i = index">
-    <input
-      type="checkbox"
-      [value]="option.value"
-      [checked]="option.selected"
-      [id]="option.value"
-      [name]="field.key"
-      [value]="option.value"
-      (click)="onClick($event)"
-    />
-    <label [for]="option.value">{{ option.label }}</label>
+    <div
+      class="input__checkbox-group"
+      [ngClass]="{ 'input__checkbox--error': showErrors() }"
+    >
+      <input
+        class="input__checkbox"
+        type="checkbox"
+        [value]="option.value"
+        [checked]="option.selected"
+        [id]="option.value"
+        [name]="field.key"
+        [value]="option.value"
+        (click)="onClick($event)"
+      />
+      <label class="input__checkbox-option" [for]="option.value">
+        <span class="input__checkbox-button"></span>
+        {{ option.label }}
+      </label>
+    </div>
   </ng-container>
 
-  <div class="form__input__errors" *ngIf="showErrors()">
+  <div class="input__checkbox-errors" *ngIf="showErrors()">
     <p
-      class="form__input__error"
+      class="input__checkbox-error"
       *ngIf="formGroup.controls[field.key].errors.required"
     >
       Value is required
     </p>
     <p
-      class="form__input__error"
+      class="input__checkbox-error"
       *ngIf="formGroup.controls[field.key].errors.minOptions"
     >
       You must select at least
@@ -32,7 +41,7 @@
       selected.
     </p>
     <p
-      class="form__input__error"
+      class="input__checkbox-error"
       *ngIf="formGroup.controls[field.key].errors.maxOptions"
     >
       You cannot select more than

@@ -71,11 +71,11 @@ export class AppComponent {
         options: [
           {
             label: 'option 1',
-            value: '3',
+            value: '4',
           },
           {
             label: 'option 2',
-            value: '4',
+            value: '5',
             // selected: true,
           },
         ],
@@ -91,17 +91,17 @@ export class AppComponent {
         options: [
           {
             label: 'option 1',
-            value: '1',
+            value: '6',
             // selected: true,
           },
           {
             label: 'option 2',
-            value: '2',
+            value: '7',
             // selected: true,
           },
           {
             label: 'option 3',
-            value: '3',
+            value: '8',
             // selected: true,
           },
         ],
@@ -117,32 +117,32 @@ export class AppComponent {
         options: [
           {
             label: 'option 1',
-            value: '1',
+            value: '9',
             // selected: true,
           },
           {
             label: 'option 2',
-            value: '2',
+            value: '10',
             // selected: true,
           },
           {
             label: 'option 3',
-            value: '3',
+            value: '11',
             // selected: true,
           },
           {
             label: 'option 4',
-            value: '4',
+            value: '12',
             // selected: true,
           },
           {
             label: 'option 5',
-            value: '5',
+            value: '13',
             // selected: true,
           },
           {
             label: 'option 6',
-            value: '6',
+            value: '14',
             // selected: true,
           },
         ],
