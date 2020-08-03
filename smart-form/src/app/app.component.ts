@@ -71,11 +71,11 @@ export class AppComponent {
         options: [
           {
             label: 'option 1',
-            value: true,
+            value: '3',
           },
           {
             label: 'option 2',
-            value: false,
+            value: '4',
             // selected: true,
           },
         ],

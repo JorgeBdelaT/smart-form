@@ -6,13 +6,6 @@
   [ngClass]="{ 'input__select--error': showErrors() }"
   (change)="changed = true"
 >
-  <!-- <option value="" disabled selected hidden>{{
-    field.label ? field.label : (field.key | titlecase)
-  }}</option> -->
-  <option class="input__select-placeholder" value="" hidden disabled selected>{{
-    field.label ? field.label : (field.key | titlecase)
-  }}</option>
-
   <option
     *ngFor="let option of field.options"
     [value]="option.value"

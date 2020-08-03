@@ -26,9 +26,10 @@
   &__content-box {
     padding: 1rem;
     overflow-y: scroll;
+    overflow-x: hidden;
 
     // For testing
-    height: 50rem;
+    height: 46rem;
   }
 
   &__errors {
@@ -45,9 +46,6 @@
 
   &__button-box {
     width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
     height: 4.5rem;
     padding: 1rem;
     background-color: $color-dark;

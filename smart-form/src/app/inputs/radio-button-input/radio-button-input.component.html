@@ -1,13 +1,27 @@
-<label class="field__label" [for]="field.key">
+<label class="input__radio-label" [for]="field.key">
   {{ field.label ? field.label : (field.key | titlecase) }}
 </label>
 <ng-container *ngFor="let option of field.options">
-  <input
-    type="radio"
-    [id]="option.value"
-    [name]="field.key"
-    [value]="option.value"
-    [formControl]="control"
-  />
-  <label [for]="option.value">{{ option.label }}</label>
+  <div
+    class="input__radio-group"
+    [ngClass]="{ 'input__radio--error': showErrors() }"
+  >
+    <input
+      class="input__radio"
+      type="radio"
+      [id]="option.value"
+      [name]="field.key"
+      [value]="option.value"
+      [formControl]="control"
+    />
+    <label class="input__radio-option" [for]="option.value">
+      <span class="input__radio-button"></span>
+      {{ option.label }}
+    </label>
+  </div>
 </ng-container>
+<div class="input__radio-errors" *ngIf="showErrors()">
+  <p class="input__radio-error" *ngIf="control.errors.required">
+    Value is required
+  </p>
+</div>
