@@ -36,7 +36,11 @@ export class PlainInputComponent implements OnInit {
       validators.push(Validators.pattern(pattern));
     }
     if (this.field.inputType === 'email') {
-      validators.push(Validators.email);
+      validators.push(
+        Validators.pattern(
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
+      );
     }
 
     this.control.setValidators(validators);

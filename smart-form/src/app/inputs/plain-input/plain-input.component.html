@@ -26,10 +26,7 @@
     {{ control.errors.maxlength.requiredLength }}
   </p>
   <p class="input__plain-error" *ngIf="control.errors.pattern">
-    Invalid format
-  </p>
-  <p class="input__plain-error" *ngIf="control.errors.email">
-    Invalid mail
+    {{ field.inputType === "email" ? "Invalid mail" : "Invalid format" }}
   </p>
 </div>
 <!-- <div>Input errors: {{ control.errors | json }}</div> -->
