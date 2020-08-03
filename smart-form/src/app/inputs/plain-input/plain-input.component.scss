@@ -33,7 +33,6 @@ $color-primary: #04bf55;
     display: block;
     transition: all 0.3s;
 
-    // to avoid the others elements to shake
     border-bottom: 3px solid transparent;
 
     &:first-child {
@@ -54,7 +53,7 @@ $color-primary: #04bf55;
   &__input:placeholder-shown + &__label {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(0rem);
+    transform: translateY(-2rem);
   }
 
   &__input-errors {

@@ -1,0 +1,113 @@
+main {
+  position: relative;
+}
+
+.wrapper {
+  width: 100%;
+  background-color: $color-primary-5;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  height: 58rem;
+}
+
+.textarea-input {
+  width: 100%;
+  height: 52rem;
+  padding: 1rem;
+
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: $color-primary-6;
+  background-color: $color-primary-2;
+  border-radius: 0.5rem;
+
+  outline: none;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid $color-primary-6;
+  background-color: transparent;
+  color: $color-primary-6;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &:hover {
+    transform: translateY(-0.1rem);
+    background-color: $color-primary-6;
+    color: $color-primary-2;
+  }
+
+  &:focus {
+    transform: translateY(0rem);
+  }
+}
+
+.placeholder {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__list {
+    padding-left: 1.8rem;
+    columns: 2;
+    margin-top: 2rem;
+
+    &__item {
+    }
+  }
+
+  &__nested-list {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    list-style: inside;
+  }
+}
+
+.display-area {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 0.6rem;
+  padding: 0 0 0.5rem 2rem;
+
+  &__text {
+    &:active,
+    &:visited,
+    &:link {
+      cursor: pointer;
+      text-decoration: none;
+      color: $color-primary-6;
+    }
+  }
+}
