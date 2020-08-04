@@ -2,27 +2,26 @@
   <label class="input__checkbox-label" [for]="field.key">
     {{ field.label ? field.label : (field.key | titlecase) }}
   </label>
-  <ng-container *ngFor="let option of field.options; let i = index">
-    <div
-      class="input__checkbox-group"
-      [ngClass]="{ 'input__checkbox--error': showErrors() }"
-    >
-      <input
-        class="input__checkbox"
-        type="checkbox"
-        [value]="option.value"
-        [checked]="option.selected"
-        [id]="option.value"
-        [name]="field.key"
-        [value]="option.value"
-        (click)="onClick($event)"
-      />
-      <label class="input__checkbox-option" [for]="option.value">
-        <span class="input__checkbox-button"></span>
-        {{ option.label }}
-      </label>
-    </div>
-  </ng-container>
+  <div class="container" [ngClass]="{ 'container--error': showErrors() }">
+    <ng-container *ngFor="let option of field.options; let i = index">
+      <div class="input__checkbox-group">
+        <input
+          class="input__checkbox"
+          type="checkbox"
+          [value]="option.value"
+          [checked]="option.selected"
+          [id]="option.value"
+          [name]="field.key"
+          [value]="option.value"
+          (click)="onClick($event)"
+        />
+        <label class="input__checkbox-option" [for]="option.value">
+          <span class="input__checkbox-button"></span>
+          {{ option.label }}
+        </label>
+      </div>
+    </ng-container>
+  </div>
 
   <div class="input__checkbox-errors" *ngIf="showErrors()">
     <p

@@ -118,11 +118,15 @@ main {
 }
 
 .form-result {
-  display: block;
-  margin-top: 1.5rem;
-  padding-left: 2rem;
-  padding-top: 1rem;
-  border-top: 0.1rem solid $color-primary-6;
+  width: 100%;
+  height: 52rem;
+  padding: 2rem;
+  color: $color-primary-6;
+  background-color: $color-primary-2;
+  border-radius: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-size: 1.2rem;
 
   &__title {
     font-size: 1.6rem;

@@ -7,5 +7,12 @@
   &__title {
     font-size: 2rem;
     text-transform: capitalize;
+
+    a:link,
+    a:visited,
+    a:active {
+      text-decoration: none;
+      color: $color-primary-6;
+    }
   }
 }

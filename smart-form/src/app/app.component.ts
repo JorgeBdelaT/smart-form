@@ -127,7 +127,7 @@ export class AppComponent {
           },
           {
             label: 'option 2',
-            value: '12',
+            value: '11',
             // selected: true,
           },
           {
