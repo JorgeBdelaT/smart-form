@@ -29,4 +29,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: master
         BRANCH: gh-pages
-        FOLDER: dist/smart-form/
+        FOLDER: smart-form/dist/smart-form/
