@@ -1,0 +1,349 @@
+.input {
+  // Plain input component
+  &__plain {
+    font-size: 1.2rem;
+    padding: 1rem 1.3rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.45);
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    display: block;
+    transition: all 0.3s;
+
+    border-bottom: 2px solid transparent;
+
+    &:first-child {
+      margin-top: 1.8rem;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 2px solid $color-primary;
+    }
+
+    &--error {
+      border-bottom: 2px solid $color-red-dark;
+    }
+
+    &-errors {
+      width: 100%;
+      color: $color-red-dark;
+      padding: 0.7rem;
+      margin-top: -1.5rem;
+    }
+
+    &-label {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-left: 1.3rem;
+      display: block;
+      transition: all 0.3s;
+      transform: translateY(-5.5rem);
+    }
+
+    &::placeholder {
+      color: $color-primary-5;
+    }
+
+    &:placeholder-shown + &-label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-2rem);
+    }
+  }
+
+  // Select input component
+  &__select {
+    font-size: 1.2rem;
+    padding: 1rem 1.3rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.45);
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    display: block;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2rem;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+      + * {
+        transform: translateY(-3.8rem);
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: inherit;
+        color: inherit;
+      }
+    }
+
+    option {
+      background-color: $color-primary-3;
+      color: $color-primary-6;
+    }
+
+    &-label {
+      margin-left: 1.3rem;
+      transition: all 0.3s;
+      transform: translateY(-1rem);
+      color: $color-primary-5;
+      display: inline-block;
+      font-size: 1.2rem;
+
+      &--up {
+        transform: translateY(-3.8rem);
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: inherit;
+        color: inherit;
+      }
+    }
+
+    &-errors {
+      width: 100%;
+      color: $color-red-dark;
+      padding: 0.7rem;
+      margin-bottom: -1.5rem;
+    }
+
+    &--error {
+      border-bottom: 2px solid $color-red-dark;
+    }
+  }
+
+  // Radio input component
+  &__radio {
+    opacity: 0;
+    display: inline-block;
+    width: 0;
+    height: 0;
+
+    &:checked ~ &-option &-button::after {
+      opacity: 1;
+    }
+
+    &-label {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding: 0 1.3rem;
+      color: $color-primary-1;
+    }
+
+    &-group {
+      display: block;
+
+      padding-bottom: 1rem;
+      width: 100%;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-0.1rem);
+
+        > .input__radio-option .input__radio-button {
+          background-color: $color-medium;
+        }
+      }
+    }
+
+    &-button {
+      height: 1.4rem;
+      width: 1.4rem;
+      border: 0.1rem solid $color-dark;
+      display: inline-block;
+      position: absolute;
+      left: -0.5rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        background-color: $color-dark;
+        border: 0.1rem solid $color-dark;
+        position: absolute;
+
+        opacity: 0;
+        transition: opacity 0.2s;
+        cursor: pointer;
+      }
+    }
+
+    &-option {
+      display: block;
+      font-family: inherit;
+      font-size: 1rem;
+      color: $color-black;
+      padding-left: 2rem;
+      width: 100%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    &-errors {
+      width: 100%;
+      color: $color-red-dark;
+      padding: 0.7rem;
+    }
+  }
+
+  // Checkbox input component
+  &__checkbox {
+    opacity: 0;
+    display: inline-block;
+    width: 0;
+    height: 0;
+
+    &:checked ~ &-option &-button::after {
+      opacity: 1;
+    }
+
+    &-label {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding: 0 1.3rem;
+      color: $color-primary-1;
+    }
+
+    &-group {
+      display: block;
+      padding-bottom: 1rem;
+      width: 100%;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-0.1rem);
+
+        > .input__checkbox-option .input__checkbox-button {
+          background-color: $color-medium;
+        }
+      }
+    }
+
+    &-option {
+      display: block;
+      font-family: inherit;
+      font-size: 1rem;
+      color: $color-black;
+      padding-left: 2rem;
+      width: 100%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    &-button {
+      height: 1.4rem;
+      width: 1.4rem;
+      border: 0.1rem solid $color-dark;
+      display: inline-block;
+      position: absolute;
+      left: -0.5rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        background-color: $color-dark;
+        border: 0.1rem solid $color-dark;
+        position: absolute;
+
+        opacity: 0;
+        transition: opacity 0.2s;
+        cursor: pointer;
+      }
+    }
+
+    &-errors {
+      width: 100%;
+      color: $color-red-dark;
+      padding: 0.7rem;
+    }
+
+    &--error {
+      border-bottom: 2px solid $color-red-dark;
+    }
+  }
+
+  // Multi-select input component
+  &__multi-select {
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.45);
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    height: auto;
+    display: block;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent;
+
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+    }
+
+    option {
+      padding: 1rem 1.8rem;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-0.1rem);
+        background-color: $color-medium;
+      }
+    }
+
+    &-label {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding: 0 1.3rem;
+      color: $color-primary-1;
+    }
+
+    &-errors {
+      width: 100%;
+      color: $color-red-dark;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    &--error {
+      border-bottom: 2px solid $color-red-dark;
+    }
+  }
+}
+
+.container {
+  border-radius: 2px;
+  background-color: rgba($color-white, 0.45);
+  padding: 0.5rem 0 0.5rem 1.3rem;
+  border-bottom: 2px solid transparent;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--error {
+    border-bottom: 2px solid $color-red-dark;
+  }
+}

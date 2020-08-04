@@ -24,13 +24,56 @@ import { FormData } from 'src/app/interfaces';
 })
 export class SmartFormComponent implements OnInit {
   @Input() data: FormData;
-  formGroup: FormGroup;
   @Output() sfSubmit = new EventEmitter();
+  formGroup: FormGroup;
+  validInput: boolean;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.buildFormGroup();
+    this.valideInputData();
+
+    if (this.validInput) {
+      this.buildFormGroup();
+    }
+  }
+
+  valideInputData() {
+    const validInputTypes = [
+      'text',
+      'password',
+      'email',
+      'select',
+      'radio-button',
+      'multiple-select',
+      'checkbox',
+      undefined,
+    ];
+
+    if (this.data.fields === undefined || this.data.fields.length === 0) {
+      this.validInput = false;
+      throw Error(
+        'Invalid input data structure, a non empty fields object must be provided'
+      );
+    }
+
+    this.data.fields.forEach((field) => {
+      if (
+        (field.inputType === 'select' ||
+          field.inputType === 'radio-button' ||
+          field.inputType === 'multiple-select' ||
+          field.inputType === 'checkbox') &&
+        (field.options.length === 0 || field.options.length === undefined)
+      ) {
+        this.validInput = false;
+        throw Error('A non empty options array must be provided');
+      }
+      if (validInputTypes.indexOf(field.inputType) < 0) {
+        this.validInput = false;
+        throw Error('Invalid inputType');
+      }
+    });
+    this.validInput = true;
   }
 
   buildFormGroup(): void {
@@ -41,7 +84,8 @@ export class SmartFormComponent implements OnInit {
       if (
         field.inputType === 'text' ||
         field.inputType === 'password' ||
-        field.inputType === 'email'
+        field.inputType === 'email' ||
+        field.inputType === undefined
       ) {
         fieldsOptions[field.key] = field.value ? field.value : '';
       } else if (

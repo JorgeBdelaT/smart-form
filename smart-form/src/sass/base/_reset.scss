@@ -1,0 +1,25 @@
+/* For easier rem management, now 10px = 1rm */
+html {
+  /* font-size: 10px; */
+  font-size: 62.5%; /* Con respecto al browser, default = 16px  */
+}
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+  /* box-sizing: border-box; */
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: "Lato", sans-serif;
+  position: relative;
+
+  background-color: $color-primary-2;
+  padding: 1rem 2rem;
+  overflow: hidden;
+}

@@ -1,1 +1,113 @@
-<smart-form [data]="mockInput" (sfSubmit)="onSfSubmit($event)"></smart-form>
+<header class="header">
+  <h1 class="header__title">
+    <a href="/">smartform demo</a>
+  </h1>
+</header>
+<main class="row">
+  <div class="col-1-of-2 wrapper">
+    <div class="btn-group">
+      <button (click)="onTrySubmit()" class="btn">Try</button>
+      <button (click)="onReset()" class="btn">Reset</button>
+    </div>
+    <div class="display-area">
+      <textarea
+        *ngIf="!formResult"
+        class="textarea-input"
+        (input)="onTextareaInput($event)"
+        [value]="inputData | json"
+      ></textarea>
+      <div class="form-result" *ngIf="formResult">
+        <h3 class="form-result__title">The form output is:</h3>
+        <pre> {{ formResult | json }} </pre>
+      </div>
+    </div>
+  </div>
+  <div class="col-1-of-2 wrapper">
+    <div *ngIf="submitted" class="u-padding-medium">
+      <smart-form
+        [data]="inputData"
+        (sfSubmit)="onSfSubmit($event)"
+      ></smart-form>
+    </div>
+    <div *ngIf="!submitted" class="placeholder">
+      <p class="placeholder__text">
+        Welcome to the Smartform demo. This app is a tool to test the usage of a
+        dynamic form renderer written in Angular 8. The idea behind this
+        component is to receive a JSON object like the one in the editor at the
+        lleft side of the screen and display a form with all the fields and
+        validations. When the form is submitted, it retrieves all the form data
+        for user manipulation.
+      </p>
+      <p class="placeholder__text">
+        The current version supports the following input types and validations:
+      </p>
+      <ol class="placeholder__list">
+        <li class="placeholder__list__item">
+          text-input
+          <ul class="placeholder__nested-list">
+            <li>required, default false</li>
+            <li>minLength, default null</li>
+            <li>maxLength, default null</li>
+            <li>pattern, default null</li>
+          </ul>
+        </li>
+        <li class="placeholder__list__item">
+          password-input
+          <ul class="placeholder__nested-list">
+            <li>required, default false</li>
+            <li>minLength, default null</li>
+            <li>maxLength, default null</li>
+            <li>pattern, default null</li>
+          </ul>
+        </li>
+        <li class="placeholder__list__item">
+          email-input
+          <ul class="placeholder__nested-list">
+            <li>required, default false</li>
+            <li>minLength, default null</li>
+            <li>maxLength, default null</li>
+            <li>pattern, default null</li>
+          </ul>
+        </li>
+        <li class="placeholder__list__item">
+          select-input
+          <ul class="placeholder__nested-list">
+            <li>required, default false</li>
+          </ul>
+        </li>
+        <li class="placeholder__list__item">
+          radio-button-input
+          <ul class="placeholder__nested-list">
+            <li>required, default false</li>
+          </ul>
+        </li>
+        <li class="placeholder__list__item">
+          multiple-select-input
+          <ul class="placeholder__nested-list">
+            <li>required, default false</li>
+            <li>minOptions, default false</li>
+            <li>maxOptions, default false</li>
+          </ul>
+        </li>
+        <li class="placeholder__list__item">
+          checkbox-input
+          <ul class="placeholder__nested-list">
+            <li>required, default false</li>
+            <li>minOptions, default false</li>
+            <li>maxOptions, default false</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <a
+    class="footer__text"
+    href="https://github.com/JorgeBdelaT/smart-form"
+    target="_blank"
+  >
+    <i class="footer__icon fa fa-github"></i> Happily coded by JorgeBdelaT
+  </a>
+</footer>

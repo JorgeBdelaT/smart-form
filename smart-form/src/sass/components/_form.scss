@@ -1,0 +1,82 @@
+.form {
+  width: 100%;
+  height: 100%;
+  background-color: $color-light;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  overflow: hidden;
+  position: relative;
+  color: $color-dark;
+
+  &__title-box {
+    background-color: $color-dark;
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-light;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  &__content-box {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    // For testing
+    height: 46rem;
+  }
+
+  &__errors {
+    width: 100%;
+    border: 1px solid $color-red-dark;
+    padding: 0.7rem;
+    background-color: $color-red-light;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  &__error {
+  }
+
+  &__button-box {
+    width: 100%;
+    height: 4.5rem;
+    padding: 1rem;
+    background-color: $color-dark;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    border-radius: 0.3rem;
+    border: 0.1rem solid $color-primary-6;
+    background-color: transparent;
+    color: $color-primary-6;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: translateY(-0.1rem);
+      background-color: $color-primary;
+      border: 0.1rem solid $color-primary;
+      color: $color-primary-6;
+    }
+
+    &:focus {
+      transform: translateY(0);
+    }
+  }
+}

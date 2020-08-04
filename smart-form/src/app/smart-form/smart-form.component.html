@@ -1,24 +1,34 @@
-<form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-  <h2 class="form__title" *ngIf="data.title">{{ data.title }}</h2>
+<ng-container *ngIf="validInput">
+  <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="form__title-box">
+      <h2 class="form__title" *ngIf="data.title">{{ data.title }}</h2>
+    </div>
 
-  <div *ngIf="formGroup.errors" class="form__errors">
-    <p class="form__error">
-      Unable to submit the form, please fill all the required values.
-    </p>
-  </div>
+    <div class="form__content-box">
+      <div *ngIf="formGroup.errors" class="form__errors">
+        <p class="form__error">
+          Unable to submit the form, please fill all the required values.
+        </p>
+      </div>
 
-  <ng-container *ngFor="let field of data.fields">
-    <sf-field [fieldData]="field" [formGroup]="formGroup"></sf-field>
-  </ng-container>
+      <ng-container *ngFor="let field of data.fields">
+        <sf-field [fieldData]="field" [formGroup]="formGroup"></sf-field>
+      </ng-container>
+    </div>
 
-  <div class="form__buttons">
-    <ng-container *ngFor="let button of data.buttons">
-      <sf-button [button]="button"></sf-button>
-    </ng-container>
-  </div>
-</form>
+    <div class="form__button-box">
+      <button class="form__button" type="submit">
+        {{ data.button ? data.button.label : "Submit" }}
+      </button>
+    </div>
+  </form>
+  <!-- 
+  <br />
+  <hr />
 
-<hr />
-<div>Form values: {{ formGroup.value | json }}</div>
-<div>Form is valid: {{ formGroup.valid | json }}</div>
-<div>Form errors: {{ formGroup.errors | json }}</div>
+  <div class="status">
+    <div>Form values: {{ formGroup.value | json }}</div>
+    <div>Form is valid: {{ formGroup.valid | json }}</div>
+    <div>Form errors: {{ formGroup.errors | json }}</div>
+  </div> -->
+</ng-container>

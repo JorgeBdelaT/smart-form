@@ -1,27 +1,32 @@
 <input
-  class="form__input"
+  class="input__plain"
   [id]="field.key"
   [type]="field.inputType"
   [formControl]="control"
+  [ngClass]="{ 'input__plain--error': showErrors() }"
+  [placeholder]="field.label ? field.label : (field.key | titlecase)"
 />
+<label class="input__plain-label" [for]="field.key">
+  {{ field.label ? field.label : (field.key | titlecase) }}
+</label>
 
-<div class="form__input__errors" *ngIf="showErrors()">
-  <p class="form__input__error" *ngIf="control.errors.required">
+<div class="input__plain-errors" *ngIf="showErrors()">
+  <p class="input__plain-error" *ngIf="control.errors.required">
     Value is required
   </p>
-  <p class="form__input__error" *ngIf="control.errors.minlength">
+  <p class="input__plain-error" *ngIf="control.errors.minlength">
     Value you entered is
     {{ control.errors.minlength.actualLength }} characters long, but it should
     be at least {{ control.errors.minlength.requiredLength }}
   </p>
-  <p class="form__input__error" *ngIf="control.errors.maxlength">
+  <p class="input__plain-error" *ngIf="control.errors.maxlength">
     Value you entered is
     {{ control.errors.maxlength.actualLength }} characters long, but it cannot
     be longer than
     {{ control.errors.maxlength.requiredLength }}
   </p>
-  <p class="form__input__error" *ngIf="control.errors.pattern">
-    Invalid format
+  <p class="input__plain-error" *ngIf="control.errors.pattern">
+    {{ field.inputType === "email" ? "Invalid mail" : "Invalid format" }}
   </p>
 </div>
 <!-- <div>Input errors: {{ control.errors | json }}</div> -->

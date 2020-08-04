@@ -5,28 +5,25 @@ export interface FieldOptionsData {
 }
 
 export interface FieldData {
-  label: string;
+  label?: string; // if not provided the key will be capitalized and used
   key: string;
-  value?: any;
-  inputType: string;
-  options?: FieldOptionsData[];
-  required?: boolean;
-  minLength?: number;
-  maxLength?: number;
-  pattern?: string;
-  maxOptions?: number;
-  minOptions?: number;
+  value?: any; // empty value by default
+  inputType?: string; // text by default
+  options?: FieldOptionsData[]; // empty value by default
+  required?: boolean; // false by default
+  minLength?: number; // null by default
+  maxLength?: number; // null by default
+  pattern?: string; // null by default, only checks if inputType is email
+  maxOptions?: number; // null by default
+  minOptions?: number; // null by default
 }
 
 export interface ButtonData {
-  label: string;
-  action?: () => void;
-  type: string;
+  label: string; // 'Submit' by default
 }
 
 export interface FormData {
-  onSubmit: () => void;
-  title?: string;
+  title?: string; // empty by default
   fields: FieldData[];
-  buttons: ButtonData[];
+  button?: ButtonData; // by default a Submit button is generated
 }

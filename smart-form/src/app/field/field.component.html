@@ -1,10 +1,10 @@
-<div class="form__group">
-  <label class="form__label" [for]="fieldData.key">{{ fieldData.label }}</label>
+<div class="field">
   <ng-container
     *ngIf="
       fieldData.inputType === 'text' ||
       fieldData.inputType === 'email' ||
-      fieldData.inputType === 'password'
+      fieldData.inputType === 'password' ||
+      fieldData.inputType === undefined
     "
   >
     <sf-plain-input

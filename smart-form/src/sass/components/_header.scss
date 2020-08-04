@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: transparent;
+
+  &__title {
+    font-size: 2rem;
+    text-transform: capitalize;
+
+    a:link,
+    a:visited,
+    a:active {
+      text-decoration: none;
+      color: $color-primary-6;
+    }
+  }
+}

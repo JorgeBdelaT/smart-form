@@ -5,17 +5,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SmartFormComponent } from './smart-form/smart-form.component';
 import { FieldComponent } from './field/field.component';
-import { ButtonComponent } from './button/button.component';
 
 import { InputsModule } from 'src/app/inputs/inputs.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SmartFormComponent,
-    FieldComponent,
-    ButtonComponent,
-  ],
+  declarations: [AppComponent, SmartFormComponent, FieldComponent],
   imports: [BrowserModule, ReactiveFormsModule, InputsModule],
   providers: [],
   bootstrap: [AppComponent],

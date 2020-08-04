@@ -11,6 +11,7 @@ import { FieldData } from 'src/app/interfaces';
 export class SelectInputComponent implements OnInit {
   @Input() field: FieldData;
   @Input() control: FormControl;
+  changed = false;
 
   constructor() {}
 
